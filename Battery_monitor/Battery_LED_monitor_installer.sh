@@ -34,7 +34,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 echo '>>> Install Python PIP'
 python get-pip.py
 echo '>>> Install ads1115 python library'
-pip install ads1115
+python pip install ads1115
 echo '>>> Save Batocera Overlay'
 bash batocera-save-overlay
 
