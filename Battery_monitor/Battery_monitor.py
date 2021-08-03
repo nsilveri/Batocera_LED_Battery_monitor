@@ -53,27 +53,32 @@ while True:
     #ADS1115 channel 2 is connected to the TinkerBoy charge led, it helps to understand if the Game boy is charging or not
     charge = ads.readADCSingleEnded(2)
     
-    if(volt >= VOLT75): #GREEN turns ON
+    if(volt >= VOLT75): #GREEN LED turns ON
        GPIO.output(23,GPIO.LOW)
        GPIO.output(21,GPIO.HIGH)
-    if(volt < VOLT75 and volt > VOLT50):
+    if(volt < VOLT75 and volt > VOLT50): #the GREEN LED alternates with the YELLOW LED, the YELLOW LED is obtained by turning on the GREEN and RED LED at the same time
+       #GREEN LED 
        GPIO.output(23,GPIO.LOW)
        GPIO.output(21,GPIO.HIGH)
        time.sleep(1)
+       #YELLOW LED
        GPIO.output(21,GPIO.HIGH)
        GPIO.output(23,GPIO.HIGH)
     if(volt < VOLT50 and volt > VOLT25):
+       #YELLOW LED
        GPIO.output(21,GPIO.HIGH)
        GPIO.output(23,GPIO.HIGH)
     if(volt < VOLT25 and volt > VOLT10):
+       #RED LED
        GPIO.output(21,GPIO.LOW)
        GPIO.output(23,GPIO.HIGH)
     if(volt < VOLT10 and volt > VOLT0):
+       #RED LED intermittently
        GPIO.output(21,GPIO.LOW)
        GPIO.output(23,GPIO.HIGH)
        time.sleep(1)
        GPIO.output(23,GPIO.LOW)
-    if(volt < VOLT0 and charge < 4000):
+    if(volt < VOLT0 and charge < 4000): #
        os.system('shutdown -h now')
     
     #print("{:.0f} mV mesuré sur AN0".format(volt))
