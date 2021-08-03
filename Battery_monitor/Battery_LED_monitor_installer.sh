@@ -42,4 +42,4 @@ bash batocera-save-overlay
 echo '>>> Autoboot script...'
 mv custom.sh /userdata/system
 bash batocera-save-overlay
-exit '0'
+echo '>>> Finish!'
