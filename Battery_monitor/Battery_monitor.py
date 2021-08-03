@@ -16,7 +16,7 @@ VOLT10	= 3300
 VOLT0	= 3250
 
 ads = ADS1115.ADS1115()
-
+#STARTUP PROCEDURE----------> It can help you understand if the script starts correctly
 #print("GREEN on")
 GPIO.output(21,GPIO.HIGH)
 time.sleep(1)
@@ -42,15 +42,18 @@ time.sleep(1)
 #print("RED off")
 GPIO.output(23,GPIO.LOW)
 
+#END STARTUP PROCEDURE
 
 while True:
+    #The voltage is read 3 times and averaged, battery V+ is connected to the ADS1115 channel 1
     volt_1 = ads.readADCSingleEnded()
     volt_2 = ads.readADCSingleEnded()
     volt_3 = ads.readADCSingleEnded()
-    charge = ads.readADCSingleEnded(2)
     volt = (volt_1 + volt_2 + volt_3) / 3
-
-    if(volt >= VOLT75):
+    #ADS1115 channel 2 is connected to the TinkerBoy charge led, it helps to understand if the Game boy is charging or not
+    charge = ads.readADCSingleEnded(2)
+    
+    if(volt >= VOLT75): #GREEN turns ON
        GPIO.output(23,GPIO.LOW)
        GPIO.output(21,GPIO.HIGH)
     if(volt < VOLT75 and volt > VOLT50):
