@@ -1,4 +1,10 @@
 #!/bin/sh
+#Enable Safe Shutdown
+printf "\nSetting up Safe Shutdown...\n\n"
+poweroff="dtoverlay=gpio-poweroff,gpiopin=10,active_low=1"
+shutdown="dtoverlay=gpio-shutdown,gpio_pin=11,active_low=1"
+sudo sh -c "echo '$poweroff' >> /boot/config.txt"
+sudo sh -c "echo '$shutdown' >> /boot/config.txt"
 
 #Enable I2C
 echo '>>> Enable I2C'
@@ -28,6 +34,7 @@ if [ -f /etc/modprobe.d/raspi-blacklist.conf ]; then
 else
   echo 'File raspi-blacklist.conf does not exist, skip this step.'
 fi
+
 #Install Python PIP
 echo '>>> Download get-pip.py'
 wget https://bootstrap.pypa.io/get-pip.py
@@ -39,7 +46,7 @@ echo '>>> Save Batocera Overlay'
 bash batocera-save-overlay
 
 #Setting Script Startup
-echo '>>> Autoboot script...'
+echo '>>> Autobooting script...'
 mv custom.sh /userdata/system
 bash batocera-save-overlay
-echo '>>> Finish!'
+echo '>>> Finish!!!'
