@@ -19,6 +19,10 @@
     - The ADS1115 is powered directly by the TinkerBoy, the pins of the I2C (SDA and SCL) are connected to the respective GPIO PINs of the raspberry 
     - The channel 1 of the ADS1115 to the V + of the battery to read its voltage and calculate the state of charge of the battery and channel 2 to C + on the TinkerBoy to see if the device is charging or not
     
+Next Version:
+
+    - Make the scripts Recalbox compatible
+    
    
     
   
