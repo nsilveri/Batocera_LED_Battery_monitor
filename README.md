@@ -5,8 +5,9 @@
       - V0.1
   
   Video:
+  
        ![GBA SP](https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/LED_Battery_monitor_GBA_SP.mp4)
-  https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/LED_Battery_monitor_GBA_SP.mp4
+       
   Prerequisites:
     
         -Raspberry Pi with installed Batocera
