@@ -1,5 +1,9 @@
 # Batocera_LED_Battery_monitor
   
+  Current version:
+  
+      - 0.1
+  
   Prerequisites:
     
         -Raspberry Pi with installed Batocera
