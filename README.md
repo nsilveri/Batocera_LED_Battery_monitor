@@ -1,9 +1,10 @@
 # Batocera_LED_Battery_monitor
-  Prerequisites:
+  
+    Prerequisites:
         -Raspberry Pi with installed Batocera
         -ADS1115 Module
     
-  Installation:
+    Installation:
          1) Put the Battery_monitor folder in the /userdata directory in Batocera
          2) If you use the TinkerBoy as power supply run the script "Battery_LED_monitor_TinkerBoy_installer.sh"
          3) If you don't use Tinkerboy run the script "Battery_LED_monitor_TinkerBoy_installer.sh"
