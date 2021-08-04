@@ -24,6 +24,15 @@
  
  ![Directory where put folder](https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/images/directory.png)
  
+    Directories must be:
+     - /--->userdata--->Battery_monitor--+-->Battery_LED_monitor_installer.sh   <-----------+
+                                         |                                                  |---[Run one of this two firstly]
+                                         +-->Battery_LED_monitor_TinkerBoy_installer.sh  <--+
+                                         |
+                                         +-->Battery_monitor.py
+                                         |
+                                         +-->custom.sh
+ 
  My build:  
  
     - I used a case of a gameboy advance sp, leaving its motherboard to take advantage of its keys and its leds, in my case the 2 red and green leds are connected to pins 21 and 23 of the raspberry GPIO, if you use other PINs change them in the python script "Battery_monitor.py", having used the TinkerBoy to power everything,
