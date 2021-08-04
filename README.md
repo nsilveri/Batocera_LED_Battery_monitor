@@ -21,6 +21,7 @@
          NB: git clone doesn't work on Batocera, download the zip in Releases or clone it on your computer (if you clone you will clone the video too)
  
  Directory where put folder:
+ 
  ![Directory where put folder](https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/images/directory.png)
  
  My build:  
