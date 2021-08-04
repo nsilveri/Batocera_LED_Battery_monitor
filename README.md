@@ -2,7 +2,7 @@
   
   Current version:
   
-      - 0.1
+      - V0.1
   
   Prerequisites:
     
