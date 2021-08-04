@@ -1,22 +1,33 @@
 #!/bin/sh
+#Making boot writable
+echo '>>> Making boot writable...'
+mount -o remount,rw /boot
 #Enable Safe Shutdown
 printf "\nSetting up Safe Shutdown...\n\n"
-poweroff="dtoverlay=gpio-poweroff,gpiopin=10,active_low=1"
-shutdown="dtoverlay=gpio-shutdown,gpio_pin=11,active_low=1"
-sudo sh -c "echo '$poweroff' >> /boot/config.txt"
-sudo sh -c "echo '$shutdown' >> /boot/config.txt"
+if grep -q 'poweroff="dtoverlay=gpio-poweroff,gpiopin=10,active_low=1"' /boot/config.txt; then
+  echo 'Seems 'poweroff' already exists, skip this step.'
+else
+  poweroff="dtoverlay=gpio-poweroff,gpiopin=10,active_low=1"
+  sh -c "echo '$poweroff' >> /boot/config.txt"
+fi
+if grep -q 'shutdown="dtoverlay=gpio-shutdown,gpio_pin=11,active_low=1"' /boot/config.txt; then
+  echo 'Seems 'shutdown' already exists, skip this step.'
+else
+  shutdown="dtoverlay=gpio-shutdown,gpio_pin=11,active_low=1"
+  sh -c "echo '$shutdown' >> /boot/config.txt"
+fi
 
 #Enable I2C
 echo '>>> Enable I2C'
-if grep -q 'i2c-bcm2708' /etc/modules; then
+if grep -q 'i2c-bcm2708' /etc/modules.conf; then
   echo 'Seems i2c-bcm2708 module already exists, skip this step.'
 else
-  echo 'i2c-bcm2708' >> /etc/modules
+  echo 'i2c-bcm2708' >> /etc/modules.conf
 fi
-if grep -q 'i2c-dev' /etc/modules; then
+if grep -q 'i2c-dev' /etc/modules.conf; then
   echo 'Seems i2c-dev module already exists, skip this step.'
 else
-  echo 'i2c-dev' >> /etc/modules
+  echo 'i2c-dev' >> /etc/modules.conf
 fi
 if grep -q 'dtparam=i2c1=on' /boot/config.txt; then
   echo 'Seems i2c1 parameter already set, skip this step.'
@@ -41,12 +52,13 @@ wget https://bootstrap.pypa.io/get-pip.py
 echo '>>> Install Python PIP'
 python get-pip.py
 echo '>>> Install ads1115 python library'
-python pip install ads1115
+pip install ads1115
 echo '>>> Save Batocera Overlay'
 bash batocera-save-overlay
 
 #Setting Script Startup
 echo '>>> Autobooting script...'
-mv custom.sh /userdata/system
+cp custom.sh /userdata/system
 bash batocera-save-overlay
 echo '>>> Finish!!!'
+reboot
