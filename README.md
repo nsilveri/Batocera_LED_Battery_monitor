@@ -2,7 +2,7 @@
   
   Current version:
   
-      - V0.2
+      - V0.2 [now i use PWM to manage the individual LEDs, with pwm you can manage the LED's brightness too]
   
   Video:
        ![GBA SP](https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/LED_Battery_monitor_GBA_SP.mp4)
