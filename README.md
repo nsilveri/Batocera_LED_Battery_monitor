@@ -2,7 +2,7 @@
   
   Current version:
   
-      - V0.1
+      - V0.2
   
   Video:
        ![GBA SP](https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/LED_Battery_monitor_GBA_SP.mp4)
