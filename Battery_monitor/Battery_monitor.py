@@ -1,12 +1,12 @@
-import RPi.GPIO as GPIO
+from gpiozero import PWMLED
+from time import sleep
+from signal import pause
 import ADS1115
 import time
 import os
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(21,GPIO.OUT)
-GPIO.setup(23,GPIO.OUT)
+pwm_led_green = PWMLED(21)
+pwm_led_red = PWMLED(23)
 
 VOLT100 = 4100
 VOLT75	= 3750
@@ -18,29 +18,30 @@ VOLT0	= 3250
 ads = ADS1115.ADS1115()
 #STARTUP PROCEDURE----------> It can help you understand if the script starts correctly
 #print("GREEN on")
-GPIO.output(21,GPIO.HIGH)
+pwm_led_green.value = 1
 time.sleep(1)
 
 #print("GREEN off")
-GPIO.output(21,GPIO.LOW)
+pwm_led_green.value = 0
 time.sleep(1)
 
 #print("YELLOW on")
-GPIO.output(21,GPIO.HIGH)
-GPIO.output(23,GPIO.HIGH)
+pwm_led_green.value = 0.5
+pwm_led_red.value = 1
 time.sleep(1)
 
 #print("YELLOW off")
-GPIO.output(21,GPIO.LOW)
-GPIO.output(23,GPIO.LOW)
+pwm_led_green.value = 0
+pwm_led_red.value = 0
 time.sleep(1)
 
 #print("RED on")
-GPIO.output(23,GPIO.HIGH)
+pwm_led_red.value = 1
 time.sleep(1)
 
 #print("RED off")
-GPIO.output(23,GPIO.LOW)
+pwm_led_red.value = 0
+time.sleep(1)
 
 #END STARTUP PROCEDURE
 
@@ -54,33 +55,36 @@ while True:
     charge = ads.readADCSingleEnded(2)
     
     if(volt >= VOLT75): #GREEN LED turns ON
-       GPIO.output(23,GPIO.LOW)
-       GPIO.output(21,GPIO.HIGH)
+       pwm_led_green.value = 1
+       pwm_led_red.value = 0
     if(volt < VOLT75 and volt > VOLT50): #the GREEN LED alternates with the YELLOW LED, the YELLOW LED is obtained by turning on the GREEN and RED LED at the same time
        #GREEN LED 
-       GPIO.output(23,GPIO.LOW)
-       GPIO.output(21,GPIO.HIGH)
+       pwm_led_green.value = 1
+       pwm_led_red.value = 0
        time.sleep(1)
+        
        #YELLOW LED
-       GPIO.output(21,GPIO.HIGH)
-       GPIO.output(23,GPIO.HIGH)
+       pwm_led_green.value = 0.5
+       pwm_led_red.value = 1
     if(volt < VOLT50 and volt > VOLT25):
        #YELLOW LED
-       GPIO.output(21,GPIO.HIGH)
-       GPIO.output(23,GPIO.HIGH)
+       pwm_led_green.value = 0.5
+       pwm_led_red.value = 1
     if(volt < VOLT25 and volt > VOLT10):
        #RED LED
-       GPIO.output(21,GPIO.LOW)
-       GPIO.output(23,GPIO.HIGH)
+       pwm_led_green.value = 0
+       pwm_led_red.value = 1
     if(volt < VOLT10 and volt > VOLT0):
        #RED LED intermittently
-       GPIO.output(21,GPIO.LOW)
-       GPIO.output(23,GPIO.HIGH)
+       pwm_led_green.value = 0
+       pwm_led_red.value = 1
        time.sleep(1)
-       GPIO.output(23,GPIO.LOW)
+       #GPIO.output(23,GPIO.LOW)
+       pwm_led_red.value = 0
     if(volt < VOLT0 and charge < 4000): #
        os.system('shutdown -h now')
     
     #print("{:.0f} mV mesuré sur AN0".format(volt))
     
     time.sleep(1)
+
