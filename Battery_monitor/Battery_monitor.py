@@ -26,7 +26,7 @@ pwm_led_green.value = 0
 time.sleep(1)
 
 #print("YELLOW on")
-pwm_led_green.value = 0.5
+pwm_led_green.value = 0.2 #0.2 ---> 20% brightness
 pwm_led_red.value = 1
 time.sleep(1)
 
@@ -55,32 +55,36 @@ while True:
     charge = ads.readADCSingleEnded(2)
     
     if(volt >= VOLT75): #GREEN LED turns ON
-       pwm_led_green.value = 1
-       pwm_led_red.value = 0
+       pwm_led_green.value = 1 #1 ---> Green 100% brightness
+       pwm_led_red.value = 0 #0 ---> Red 0% brightness / led off
+        
     if(volt < VOLT75 and volt > VOLT50): #the GREEN LED alternates with the YELLOW LED, the YELLOW LED is obtained by turning on the GREEN and RED LED at the same time
        #GREEN LED 
        pwm_led_green.value = 1
-       pwm_led_red.value = 0
+       pwm_led_red.value = 0 #0 ---> Red 0% brightness / led off
        time.sleep(1)
         
        #YELLOW LED
-       pwm_led_green.value = 0.5
-       pwm_led_red.value = 1
+       pwm_led_green.value = 0.2 #0.2 ---> Green 20% brightness
+       pwm_led_red.value = 1 #1 ---> Red 100% brightness
+    
     if(volt < VOLT50 and volt > VOLT25):
        #YELLOW LED
-       pwm_led_green.value = 0.5
-       pwm_led_red.value = 1
+       pwm_led_green.value = 0.2 #0.2 ---> Green 20% brightness
+       pwm_led_red.value = 1 #1 ---> Red 100% brightness
+    
     if(volt < VOLT25 and volt > VOLT10):
        #RED LED
-       pwm_led_green.value = 0
-       pwm_led_red.value = 1
+       pwm_led_green.value = 0 #0 ---> Green 0% brightness / led off
+       pwm_led_red.value = 1 #1 ---> Red 100% brightness
+    
     if(volt < VOLT10 and volt > VOLT0):
        #RED LED intermittently
-       pwm_led_green.value = 0
-       pwm_led_red.value = 1
+       pwm_led_green.value = 0 #0 ---> Green 0% brightness / led off
+       pwm_led_red.value = 1 #1 ---> Red 100% brightness
        time.sleep(1)
-       #GPIO.output(23,GPIO.LOW)
-       pwm_led_red.value = 0
+       pwm_led_red.value = 0 #0 ---> Red 0% brightness / led off
+    
     if(volt < VOLT0 and charge < 4000): #
        os.system('shutdown -h now')
     
