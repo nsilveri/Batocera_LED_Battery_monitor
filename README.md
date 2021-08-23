@@ -7,6 +7,7 @@
   Older version:
   
       - V0.2 [now i use PWM to manage the individual LEDs, with pwm you can manage the LED's brightness too]
+      - V0.1 [initial release]
   
   Video:
        ![GBA SP](https://github.com/nsilveri/Batocera_LED_Battery_monitor/blob/main/LED_Battery_monitor_GBA_SP.mp4)
@@ -33,6 +34,10 @@
      - /--->userdata--->Battery_monitor--+-->Battery_LED_monitor_installer.sh   <-----------+
                                          |                                                  |---[Run one of this two firstly]
                                          +-->Battery_LED_monitor_TinkerBoy_installer.sh  <--+
+                                         |
+                                         +-->Battery_LED_monitor_TinkerBoy_installer_UPDATER.sh <--+
+                                         |                                                         |---[Run one of this two to upgrade scripts or when you upgrade the system]
+                                         +-->Battery_LED_monitor_installer_UPDATER.sh  <-----------+
                                          |
                                          +-->Battery_monitor.py
                                          |
