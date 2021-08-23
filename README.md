@@ -1,6 +1,10 @@
 # Batocera_LED_Battery_monitor
   
   Current version:
+    
+      - V0.3 [Added UPDATER scripts to reinstall the LED_Monitor when you change Batocera version]
+      
+  Older version:
   
       - V0.2 [now i use PWM to manage the individual LEDs, with pwm you can manage the LED's brightness too]
   
@@ -16,9 +20,10 @@
     
          1) Put the Battery_monitor folder in the /userdata directory in Batocera 
          2) If you use the TinkerBoy as power supply run the script "Battery_LED_monitor_TinkerBoy_installer.sh"
-         3) If you don't use Tinkerboy run the script "Battery_LED_monitor_TinkerBoy_installer.sh"
+         3) If you don't use Tinkerboy run the script "Battery_LED_monitor_installer.sh"
          4) If everything goes well the raspberry pi will reboot and at the next boot, after the main screen of batocera has started, the LED will start flashing green, yellow and red and then settle on the color corresponding to the battery status
          NB: git clone doesn't work on Batocera, download the zip in Releases or clone it on your computer (if you clone you will clone the video too)
+         NB2: every time you upgrade/downgrade your system to a later/earlier version you need to reinstall by running Battery_LED_monitor_TinkerBoy_installer_UPDATER.sh (if you have TinkerBoy) or Battery_LED_monitor_installer_UPDATER.sh (if you don't use TinkerBoy), it will provide to download the last version of installer's scripts.
  
  Directory where put folder:
  
