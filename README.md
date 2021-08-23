@@ -11,8 +11,7 @@
   
   Video:
   
-       https://youtu.be/rR3eU4UE5fA
-       
+       [![Alt text](https://img.youtube.com/vi/rR3eU4UE5fA/0.jpg)](https://www.youtube.com/watch?v=rR3eU4UE5fA)       
        
        
   Prerequisites:
