@@ -20,4 +20,13 @@ else
   wget https://raw.githubusercontent.com/nsilveri/Batocera_LED_Battery_monitor/main/Battery_monitor/Battery_LED_monitor_installer.sh
 fi
 
+if test -f "Battery_monitor.py"; then
+    echo "Battery_monitor.py old script found."
+	rm Battery_monitor.py
+	echo "Downloading last Battery_monitor.py script version..."
+	wget https://raw.githubusercontent.com/nsilveri/Batocera_LED_Battery_monitor/main/Battery_monitor/Battery_monitor.py
+else
+  wget https://raw.githubusercontent.com/nsilveri/Batocera_LED_Battery_monitor/main/Battery_monitor/Battery_monitor.py
+fi
+
 bash Battery_LED_monitor_TinkerBoy_installer.sh
