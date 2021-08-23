@@ -1,3 +1,4 @@
+#import RPi.GPIO as GPIO
 from gpiozero import PWMLED
 from time import sleep
 from signal import pause
@@ -8,6 +9,8 @@ import os
 pwm_led_green = PWMLED(21)
 pwm_led_red = PWMLED(23)
 
+CURRENT_STATE = 0
+
 VOLT100 = 4100
 VOLT75	= 3750
 VOLT50 	= 3650
@@ -17,31 +20,16 @@ VOLT0	= 3250
 
 ads = ADS1115.ADS1115()
 #STARTUP PROCEDURE----------> It can help you understand if the script starts correctly
-#print("GREEN on")
 pwm_led_green.value = 1
 time.sleep(1)
 
-#print("GREEN off")
-pwm_led_green.value = 0
-time.sleep(1)
-
-#print("YELLOW on")
-pwm_led_green.value = 0.2 #0.2 ---> 20% brightness
-pwm_led_red.value = 1
-time.sleep(1)
-
-#print("YELLOW off")
-pwm_led_green.value = 0
+pwm_led_green.value = 1
 pwm_led_red.value = 0
-time.sleep(1)
 
-#print("RED on")
-pwm_led_red.value = 1
-time.sleep(1)
-
-#print("RED off")
-pwm_led_red.value = 0
-time.sleep(1)
+for(i=0; i<10; i++)
+    pwm_led_green.value = pwm_led_green.value - 0.1
+    pwm_led_red.value = pwm_led_red.value + 0.1
+    delay(0.1)
 
 #END STARTUP PROCEDURE
 
@@ -54,37 +42,35 @@ while True:
     #ADS1115 channel 2 is connected to the TinkerBoy charge led, it helps to understand if the Game boy is charging or not
     charge = ads.readADCSingleEnded(2)
     
-    if(volt >= VOLT75): #GREEN LED turns ON
-       pwm_led_green.value = 1 #1 ---> Green 100% brightness
-       pwm_led_red.value = 0 #0 ---> Red 0% brightness / led off
-        
-    if(volt < VOLT75 and volt > VOLT50): #the GREEN LED alternates with the YELLOW LED, the YELLOW LED is obtained by turning on the GREEN and RED LED at the same time
-       #GREEN LED 
+    if(volt >= VOLT75 and CURRENT_STATE != 4): #GREEN LED turns ON
+       #GREEN LED
        pwm_led_green.value = 1
-       pwm_led_red.value = 0 #0 ---> Red 0% brightness / led off
-       time.sleep(1)
-        
+       pwm_led_red.value = 0
+       CURRENT_STATE = 4
+    if(volt < VOLT75 and volt > VOLT50 and CURRENT_STATE != 3): #YELLOW LED turns on, the YELLOW LED is obtained by turning on the GREEN LED with half brightness and RED LED with full brightness at the same time
        #YELLOW LED
-       pwm_led_green.value = 0.2 #0.2 ---> Green 20% brightness
-       pwm_led_red.value = 1 #1 ---> Red 100% brightness
-    
-    if(volt < VOLT50 and volt > VOLT25):
-       #YELLOW LED
-       pwm_led_green.value = 0.2 #0.2 ---> Green 20% brightness
-       pwm_led_red.value = 1 #1 ---> Red 100% brightness
-    
-    if(volt < VOLT25 and volt > VOLT10):
+       pwm_led_green.value = 0.5
+       pwm_led_red.value = 1
+       CURRENT_STATE = 3
+    if(volt < VOLT50 and volt > VOLT25 and CURRENT_STATE != 2): #ORANGE LED turns on, the ORANGE LED is obtained by turning on the GREEN LED with 1/10 brightness and RED LED with full brightness at the same time
+       #ORANGE LED
+       pwm_led_green.value = 0.1
+       pwm_led_red.value = 1
+       CURRENT_STATE = 2
+    if(volt < VOLT25 and volt > VOLT10  and CURRENT_STATE != 1):
        #RED LED
-       pwm_led_green.value = 0 #0 ---> Green 0% brightness / led off
-       pwm_led_red.value = 1 #1 ---> Red 100% brightness
-    
+       pwm_led_green.value = 0
+       pwm_led_red.value = 1
+       CURRENT_STATE = 1
     if(volt < VOLT10 and volt > VOLT0):
        #RED LED intermittently
-       pwm_led_green.value = 0 #0 ---> Green 0% brightness / led off
-       pwm_led_red.value = 1 #1 ---> Red 100% brightness
+       if(pwm_led_green.value != 0)
+           pwm_led_green.value = 0
+       pwm_led_red.value = 1
        time.sleep(1)
-       pwm_led_red.value = 0 #0 ---> Red 0% brightness / led off
-    
+       pwm_led_red.value = 0
+       if(CURRENT_STATE != 0)
+           CURRENT_STATE = 0
     if(volt < VOLT0 and charge < 4000): #
        os.system('shutdown -h now')
     
