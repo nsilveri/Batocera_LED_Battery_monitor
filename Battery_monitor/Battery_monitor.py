@@ -74,7 +74,7 @@ while True:
     if(volt < VOLT0 and charge < 4000): #
        os.system('shutdown -h now')
     
-    #print("{:.0f} mV mesuré sur AN0".format(volt))
+    #print("{:.0f} mV on AN0".format(volt))
     
     time.sleep(1)
 
