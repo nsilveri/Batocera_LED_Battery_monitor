@@ -2,7 +2,7 @@
 
   WARNING (03-10-2021)
       
-      - I have personally tried the latest version of Batocera released (V32 stable 26-09-2021), while running the script installer, the system totally freezes while installing the python-pip, I have tried numerous times without getting good results. 
+      - I have personally tried the latest released Batocera version (V32 stable 26-09-2021), while running the installer script , the system totally freezes while installing the python-pip, I have tried numerous times without getting good results. 
       I am hoping for a corrective update from the developer of the operating system.
   
   Current version:
