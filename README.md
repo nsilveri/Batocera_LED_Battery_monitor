@@ -1,10 +1,9 @@
 # Batocera_LED_Battery_monitor
 
-  WARNING (03-10-2021)
-      
-      - I have personally tried the latest released Batocera version (V32 stable 26-09-2021), while running the installer script , the system totally freezes while installing the python-pip, I have tried numerous times without getting good results. 
-      I am hoping for a corrective update from the developer of the operating system.
+  UPDATE (06/06/2022)
   
+      - Works good on Batocera v34 64bit
+      
   Current version:
     
       - V0.3 [Added UPDATER scripts to reinstall the LED_Monitor when you change Batocera version]
