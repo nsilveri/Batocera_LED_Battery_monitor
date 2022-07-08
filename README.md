@@ -1,6 +1,6 @@
 # Silver-Boy
 
-![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/photo_2022-05-28_14-05-26.jpg =480x640)
+![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/photo_2022-05-28_14-05-26.jpg)
 
 # Batocera_LED_Battery_monitor
 
