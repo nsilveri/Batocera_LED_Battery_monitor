@@ -19,7 +19,8 @@
   
   Video:
   
-       [Video](https://www.youtube.com/watch?v=rR3eU4UE5fA)       
+       [Video](https://www.youtube.com/watch?v=rR3eU4UE5fA)  
+       [![Led script](https://img.youtube.com/vi/rR3eU4UE5fA/0.jpg)](https://www.youtube.com/watch?v=rR3eU4UE5fA)
        
        
   Prerequisites:
