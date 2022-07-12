@@ -47,10 +47,10 @@ else
 fi
 
 #Install Python PIP
-echo '>>> Download get-pip.py'
-wget https://bootstrap.pypa.io/get-pip.py
+#echo '>>> Download get-pip.py'
+#wget https://bootstrap.pypa.io/get-pip.py
 echo '>>> Install Python PIP'
-python get-pip.py
+python -m ensurepip --upgrade
 #Install gpiozero python library to use LEDs with PWM method
 echo '>>> Install gpiozero python library'
 pip install gpiozero
