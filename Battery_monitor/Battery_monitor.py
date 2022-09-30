@@ -11,12 +11,13 @@ pwm_led_red = PWMLED(23)
 
 CURRENT_STATE = 0
 
-VOLT100 = 4100
-VOLT75	= 3750
-VOLT50 	= 3650
-VOLT25	= 3500
-VOLT10	= 3300
-VOLT0	= 3250
+VOLT100 = 4200
+VOLT75  = 3950
+VOLT50  = 3700
+VOLT25  = 3450
+VOLT10  = 3350
+VOLT5	= 3250
+VOLT0   = 3200
 
 ads = ADS1115.ADS1115()
 #STARTUP PROCEDURE----------> It can help you understand if the script starts correctly
@@ -26,10 +27,38 @@ time.sleep(1)
 pwm_led_green.value = 1
 pwm_led_red.value = 0
 
-for(i=0; i<10; i++)
+for i in range(10):
     pwm_led_green.value = pwm_led_green.value - 0.1
     pwm_led_red.value = pwm_led_red.value + 0.1
-    delay(0.1)
+    time.sleep(0.1)
+
+#oled_controller.message("Silver Boy 2.0", "Loading.")
+
+for i in range(10):
+    pwm_led_green.value = pwm_led_green.value + 0.1
+    pwm_led_red.value = pwm_led_red.value - 0.1
+    time.sleep(0.1)
+
+#oled_controller.message("Silver Boy 2.0", "Loading..")
+
+for i in range(10):
+    pwm_led_green.value = pwm_led_green.value - 0.1
+    pwm_led_red.value = pwm_led_red.value + 0.1
+    time.sleep(0.1)
+
+#oled_controller.message("Silver Boy 2.0", "Loading...")
+
+for i in range(10):
+    pwm_led_green.value = pwm_led_green.value + 0.1
+    pwm_led_red.value = pwm_led_red.value - 0.1
+    time.sleep(0.1)
+
+#oled_controller.message("Silver Boy 2.0", "Loading....")
+
+pwm_led_green.value = 0
+pwm_led_red.value = 0
+
+time.sleep(1)
 
 #END STARTUP PROCEDURE
 
