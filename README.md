@@ -74,7 +74,11 @@ Next Version:
     
 Some project's images:
 
-![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/2.jpg)
-![Some internal parts 2](https://github.com/nsilveri/Silver-Boy/blob/main/images/7.jpg)
-![Some internal parts 3](https://github.com/nsilveri/Silver-Boy/blob/main/images/8.jpg)
+Some internal parts 1:
+![Some internal parts 1](https://github.com/nsilveri/Silver-Boy/blob/main/images/7.jpg)
+
+Some internal parts 2:
+![Some internal parts 2](https://github.com/nsilveri/Silver-Boy/blob/main/images/8.jpg)
+
+WoA test:
 ![WoA test](https://github.com/nsilveri/Silver-Boy/blob/main/images/10.jpg)
