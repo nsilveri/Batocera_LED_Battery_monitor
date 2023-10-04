@@ -22,6 +22,7 @@ file_handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
 
+<<<<<<< HEAD
 # Aggiunta dell'handler al logger
 logger.addHandler(file_handler)
 
@@ -49,6 +50,15 @@ VOLT10      = 3350
 VOLT5	      = 3250
 VOLT0       = 3200
 VOLT_ERROR  = 3000
+=======
+VOLT100 = 4200
+VOLT75  = 3950
+VOLT50  = 3700
+VOLT25  = 3450
+VOLT10  = 3350
+VOLT5	= 3250
+VOLT0   = 3200
+>>>>>>> main
 
 ads = ADS1115.ADS1115()
 #STARTUP PROCEDURE----------> It can help you understand if the script starts correctly
@@ -60,33 +70,58 @@ time.sleep(1)
 pwm_led_green.value = 1
 pwm_led_red.value = 0
 
+<<<<<<< HEAD
 #oled_controller.message("Silver Boy 2.0", "Loading")
 
 for i in range(10):
    pwm_led_green.value = pwm_led_green.value - 0.1
    pwm_led_red.value = pwm_led_red.value + 0.1
    time.sleep(0.1)
+=======
+for i in range(10):
+    pwm_led_green.value = pwm_led_green.value - 0.1
+    pwm_led_red.value = pwm_led_red.value + 0.1
+    time.sleep(0.1)
+>>>>>>> main
 
 #oled_controller.message("Silver Boy 2.0", "Loading.")
 
 for i in range(10):
+<<<<<<< HEAD
    pwm_led_green.value = pwm_led_green.value + 0.1
    pwm_led_red.value = pwm_led_red.value - 0.1
    time.sleep(0.1)
+=======
+    pwm_led_green.value = pwm_led_green.value + 0.1
+    pwm_led_red.value = pwm_led_red.value - 0.1
+    time.sleep(0.1)
+>>>>>>> main
 
 #oled_controller.message("Silver Boy 2.0", "Loading..")
 
 for i in range(10):
+<<<<<<< HEAD
    pwm_led_green.value = pwm_led_green.value - 0.1
    pwm_led_red.value = pwm_led_red.value + 0.1
    time.sleep(0.1)
+=======
+    pwm_led_green.value = pwm_led_green.value - 0.1
+    pwm_led_red.value = pwm_led_red.value + 0.1
+    time.sleep(0.1)
+>>>>>>> main
 
 #oled_controller.message("Silver Boy 2.0", "Loading...")
 
 for i in range(10):
+<<<<<<< HEAD
    pwm_led_green.value = pwm_led_green.value + 0.1
    pwm_led_red.value = pwm_led_red.value - 0.1
    time.sleep(0.1)
+=======
+    pwm_led_green.value = pwm_led_green.value + 0.1
+    pwm_led_red.value = pwm_led_red.value - 0.1
+    time.sleep(0.1)
+>>>>>>> main
 
 #oled_controller.message("Silver Boy 2.0", "Loading....")
 
