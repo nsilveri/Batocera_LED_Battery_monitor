@@ -47,10 +47,14 @@ else
 fi
 
 #Install Python PIP
-echo '>>> Download get-pip.py for Python 2.7'
-wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+echo '>>> Download get-pip.py'
+wget https://bootstrap.pypa.io/get-pip.py
 echo '>>> Install Python PIP'
 python get-pip.py
+#Install gpiozero python library to use LEDs with PWM method
+echo '>>> Install gpiozero python library'
+pip install gpiozero
+#Install Python ads1115 to read voltages values
 echo '>>> Install ads1115 python library'
 pip install ads1115
 echo '>>> Save Batocera Overlay'

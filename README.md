@@ -1,6 +1,6 @@
 # Silver-Boy
 
-![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/photo_2022-05-28_14-05-26.jpg)(https://www.youtube.com/watch?v=rR3eU4UE5fA)
+![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/1.jpg)(https://www.youtube.com/watch?v=rR3eU4UE5fA)
 
 # Batocera_LED_Battery_monitor
 
@@ -65,6 +65,9 @@ Next Version:
 
     - Make the scripts Recalbox compatible
     
-   
-    
-  
+Some project's images:
+
+![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/2.jpg)
+![Some internal parts 2](https://github.com/nsilveri/Silver-Boy/blob/main/images/7.jpg)
+![Some internal parts 3](https://github.com/nsilveri/Silver-Boy/blob/main/images/8.jpg)
+![WoA test](https://github.com/nsilveri/Silver-Boy/blob/main/images/10.jpg)
