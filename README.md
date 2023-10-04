@@ -1,19 +1,20 @@
 # Silver-Boy
 
-![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/1.jpg)(https://www.youtube.com/watch?v=rR3eU4UE5fA)
+![Silver-Boy](https://github.com/nsilveri/Silver-Boy/blob/main/images/0.jpg)(https://www.youtube.com/watch?v=rR3eU4UE5fA)
 
 # Batocera_LED_Battery_monitor
 
-  UPDATE (06/06/2022)
+  UPDATE (05/10/2022)
   
-      - Works good on Batocera v34 64bit
+      - Works good on Batocera v38 64bit
       
   Current version:
     
-      - V0.3 [Added UPDATER scripts to reinstall the LED_Monitor when you change Batocera version]
+      - V0.4 [Added 128x64 OLED screen for real-time sys info]
       
   Older version:
   
+      - V0.3 [Added UPDATER scripts to reinstall the LED_Monitor when you change Batocera version]
       - V0.2 [now i use PWM to manage the individual LEDs, with pwm you can manage the LED's brightness too]
       - V0.1 [initial release]
   
@@ -26,6 +27,8 @@
     
         -Raspberry Pi with installed Batocera
         -ADS1115 Module
+        -128x64 I2C Oled screen
+
   Installation: 
     
          1) Put the Battery_monitor folder in the /userdata directory in Batocera 
@@ -50,6 +53,10 @@
                                          |
                                          +-->Battery_monitor.py
                                          |
+                                         +-->OLED_info.py
+                                         |
+                                         +-->silver_boy_boot.py
+                                         |
                                          +-->custom.sh
  
  My build:  
@@ -63,7 +70,7 @@
     
 Next Version:
 
-    - Make the scripts Recalbox compatible
+    - Make a pygame script to manage installation and configurations with a gui
     
 Some project's images:
 
